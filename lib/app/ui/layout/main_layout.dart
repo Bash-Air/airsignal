@@ -13,8 +13,9 @@ class MainLayout extends StatelessWidget {
     return Scaffold(
         key: scaffoldKey,
         drawer: SidePanelApp(),
-        body: Row(children: [
-          Column(children: [
+        body:
+          Stack(children: [
+            children,
             Padding(
               padding: const EdgeInsets.all(20),
               child: IconButton(
@@ -27,10 +28,9 @@ class MainLayout extends StatelessWidget {
                   scaffoldKey.currentState?.openDrawer();
                 },
               ),
-            )
+            ),
           ]),
-          children
-        ]));
+        );
   }
 }
 
