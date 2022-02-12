@@ -5,6 +5,7 @@ import 'package:latlong2/latlong.dart';
 import 'package:get/get.dart';
 
 import '../../data/model/node.dart';
+import '../layout/main_layout.dart';
 import '../widgets/point/map_point.dart';
 
 class MapPage extends GetView<NodeController> {
@@ -14,7 +15,7 @@ class MapPage extends GetView<NodeController> {
   Widget build(BuildContext context) {
     controller.fetchNodePoints();
 
-    return Scaffold(body: Obx(() {
+    return MainLayout(children: Obx(() {
       return controller.loading
           ? const Text('Loading')
           : FlutterMap(
