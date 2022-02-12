@@ -1,5 +1,5 @@
-class NodeService {
-  final ApiClient apiClient;
+class NodeRepository {
+  final MyApiClient apiClient;
 
   MyRepository({@required this.apiClient}) : assert(apiClient != null);
 
@@ -10,7 +10,4 @@ class NodeService {
   getId(id) {
     return apiClient.getId(id);
   }
-
-
-
 }
