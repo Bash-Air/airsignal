@@ -35,7 +35,7 @@ class NodePoint {
   String description;
   int location_id;
   String city;
-  double pm25;
+  double? pm25;
   Wind wind;
   Location location;
 

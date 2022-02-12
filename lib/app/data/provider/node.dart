@@ -12,7 +12,16 @@ class NodeProvider {
   all() async {
     try {
       var uri = Uri.https('api.bashair.ru', '/node/all');
-      var response = await httpClient.get(uri);
+      var response = await httpClient.get(
+          uri,
+          headers: {
+            "Accept": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Credentials": "true",
+            "Access-Control-Allow-Headers": "Access-Control-Allow-Origin, Accept",
+            "Access-Control-Allow-Methods": "POST, OPTIONS"
+          }
+      );
       if (response.statusCode == 200) {
         Iterable jsonResponse = jsonDecode(response.body);
         List<NodePoint> listNodePoint =
@@ -21,7 +30,9 @@ class NodeProvider {
       } else {
         print('Error get Node points');
       }
-    } catch (_) {}
+    } catch (e) {
+      print('ERROR!!! ${e}');
+    }
   }
 
   byId(int nodeId) async {}

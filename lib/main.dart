@@ -4,14 +4,23 @@ import 'package:get/get.dart';
 import 'app/routes/app_pages.dart';
 import 'app/ui/theme/app_theme.dart';
 
-var app = GetMaterialApp(
-  debugShowCheckedModeBanner: false,
-  initialRoute: Routes.map,
-  theme: appThemeData,
-  defaultTransition: Transition.fade,
-  getPages: AppPages.pages,
-);
+var app = const MyApp();
 
 void main() {
   runApp(app);
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: Routes.map,
+      theme: appThemeData,
+      defaultTransition: Transition.fade,
+      getPages: AppPages.pages,
+    );
+  }
 }

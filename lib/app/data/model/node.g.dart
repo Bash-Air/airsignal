@@ -33,7 +33,7 @@ NodePoint _$NodePointFromJson(Map<String, dynamic> json) => NodePoint(
       json['description'] as String,
       json['location_id'] as int,
       json['city'] as String,
-      (json['pm25'] as num).toDouble(),
+      (json['pm25'] as num?)?.toDouble(),
       Wind.fromJson(json['wind'] as Map<String, dynamic>),
       Location.fromJson(json['location'] as Map<String, dynamic>),
     );
