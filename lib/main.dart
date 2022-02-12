@@ -4,7 +4,7 @@ import 'package:getx_pattern/app/bindings/home_binding.dart';
 import 'package:getx_pattern/app/routes/app_pages.dart';
 import 'package:getx_pattern/app/translations/app_translations.dart';
 
-import 'app/ui/android/home/home_page.dart';
+import 'app/ui/pages/home_page.dart';
 import 'app/ui/theme/app_theme.dart';
 
 void main() {
@@ -14,7 +14,7 @@ void main() {
     theme: appThemeData,
     defaultTransition: Transition.fade,
     getPages: AppPages.pages,
-    locale: Locale('pt', 'BR'),
+    locale: Locale('en', 'US'),
     translationsKeys: AppTranslation.translations,
   ));
 }

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_pattern/app/controller/details/details_controller.dart';
 import 'package:getx_pattern/app/controller/home/home_controller.dart';
-import 'package:getx_pattern/app/ui/android/details/widgets/bottom_card_widget.dart';
-import 'package:getx_pattern/app/ui/android/details/widgets/top_card_widget.dart';
+import 'package:getx_pattern/app/ui/widgets/details/bottom_card_widget.dart';
+import 'package:getx_pattern/app/ui/widgets/details/top_card_widget.dart';
 import 'package:slimy_card/slimy_card.dart';
 
 class DetailsPage extends GetView<DetailsController> {
