@@ -15,7 +15,7 @@ class NodeProvider {
         "Accept": "application/json",
       });
       if (response.statusCode == 200) {
-        Iterable jsonResponse = jsonDecode(response.body);
+        Iterable jsonResponse = jsonDecode(utf8.decode(response.bodyBytes));
         List<NodePoint> listNodePoint =
             jsonResponse.map((data) => NodePoint.fromJson(data)).toList();
         return listNodePoint;
@@ -36,7 +36,8 @@ class NodeProvider {
         "Accept": "application/json",
       });
       if (response.statusCode == 200) {
-        var jsonResponse = jsonDecode(response.body);
+        print(utf8.decode(response.bodyBytes));
+        var jsonResponse = jsonDecode(utf8.decode(response.bodyBytes));
         Node node = Node.fromJson(jsonResponse);
         return node;
       } else {
@@ -56,7 +57,7 @@ class NodeProvider {
         "Accept": "application/json",
       });
       if (response.statusCode == 200) {
-        Iterable jsonResponse = jsonDecode(response.body);
+        Iterable jsonResponse = jsonDecode(utf8.decode(response.bodyBytes));
         List<NodeHistoryTick> histories =
             jsonResponse.map((data) => NodeHistoryTick.fromJson(data)).toList();
         return histories;

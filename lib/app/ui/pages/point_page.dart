@@ -45,7 +45,8 @@ class PointPage extends GetView<NodeController> {
                   child: Container(
                     margin:
                         const EdgeInsets.only(top: 60, left: 20, bottom: 30),
-                    child: IntrinsicHeight(
+                    child: SizedBox(
+                      height: 120,
                       child: Row(
                         children: [
                           Flexible(
@@ -79,15 +80,15 @@ class PointPage extends GetView<NodeController> {
                                     ),
                                   ],
                                 ),
-                                const Text(
-                                  'Воздух плохой, ожидаются улучшения в ближайшие 8 часов',
-                                  style: TextStyle(fontSize: 16),
-                                )
+                                Text(
+                                  '${controller.node?.city}, ${controller.node?.name}',
+                                  style: const TextStyle(fontSize: 14),
+                                ),
                               ],
                             ),
                           ),
                           const VerticalDivider(
-                            width: 20,
+                            width: 50,
                             thickness: 1,
                             indent: 10,
                             endIndent: 10,
