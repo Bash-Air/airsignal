@@ -17,36 +17,36 @@ class MainLayout extends StatelessWidget {
       drawer: const SidePanelApp(),
       body: Stack(children: [
         children,
-        Row(
-          children: [
-            Padding(
-                padding: const EdgeInsets.all(20),
-                child: IconButton(
-                  icon: const Icon(
-                    Icons.menu,
-                    size: 40,
-                  ),
-                  color: Colors.blue,
-                  onPressed: () {
-                    scaffoldKey.currentState?.openDrawer();
-                  },
-                )),
-            Spacer(),
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: IconButton(
-                icon: const Icon(
-                  Icons.warning,
-                  size: 40,
-                ),
-                color: Colors.blue,
-                onPressed: () {
-                  Get.to(ReportPage());
-                },
-              ),
-            ),
-          ],
-        ),
+        // Row(
+        //   children: [
+        //     Padding(
+        //         padding: const EdgeInsets.all(20),
+        //         child: IconButton(
+        //           icon: const Icon(
+        //             Icons.menu,
+        //             size: 40,
+        //           ),
+        //           color: Colors.blue,
+        //           onPressed: () {
+        //             scaffoldKey.currentState?.openDrawer();
+        //           },
+        //         )),
+        //     Spacer(),
+        //     Padding(
+        //       padding: const EdgeInsets.all(20),
+        //       child: IconButton(
+        //         icon: const Icon(
+        //           Icons.warning,
+        //           size: 40,
+        //         ),
+        //         color: Colors.blue,
+        //         onPressed: () {
+        //           Get.to(ReportPage());
+        //         },
+        //       ),
+        //     ),
+        //   ],
+        // ),
       ]),
     );
   }

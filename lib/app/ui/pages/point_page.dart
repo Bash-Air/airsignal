@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../controllers/node_controller.dart';
-import '../layout/main_layout.dart';
 
 class PointPage extends GetView<NodeController> {
   const PointPage({Key? key}) : super(key: key);
@@ -27,6 +26,14 @@ class PointPage extends GetView<NodeController> {
       }
       var color1 = HSLColor.fromAHSL(1, val, 1, 0.7).toColor();
       var color2 = HSLColor.fromAHSL(1, val + 20, 1, 0.7).toColor();
+
+      var placeName = '';
+      if (!controller.loading) {
+        placeName = controller.node!.city;
+        if (controller.node?.name != '') {
+          placeName = (placeName + ', ${controller.node!.name}');
+        }
+      }
 
       return controller.loading
           ? const Center(child: Text('Loading...'))
@@ -65,12 +72,12 @@ class PointPage extends GetView<NodeController> {
                                             "~",
                                         style: const TextStyle(
                                             height: 1,
-                                            fontSize: 100,
+                                            fontSize: 80,
                                             fontWeight: FontWeight.bold),
                                       ),
                                       Container(
                                         margin: const EdgeInsets.only(
-                                            bottom: 13, left: 10),
+                                            bottom: 13, left: 5),
                                         child: const Text(
                                           'PM2.5',
                                           style: TextStyle(
@@ -86,7 +93,7 @@ class PointPage extends GetView<NodeController> {
                                   margin: const EdgeInsets.only(bottom: 9),
                                   alignment: Alignment.bottomLeft,
                                   child: Text(
-                                    '${controller.node?.city}, ${controller.node?.name}',
+                                    '$placeName',
                                     style: const TextStyle(fontSize: 14),
                                   ),
                                 ),
