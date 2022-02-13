@@ -2,7 +2,6 @@ import 'package:airsignal_flutter/app/data/model/node.dart';
 import 'package:flutter/material.dart';
 
 class MapPoint extends StatelessWidget {
-
   final NodePoint nodePoint;
 
   const MapPoint({Key? key, required this.nodePoint}) : super(key: key);
@@ -24,13 +23,12 @@ class MapPoint extends StatelessWidget {
     }
 
     return GestureDetector(
-        onTap: () { print('Presed ${nodePoint.id}'); },
+        onTap: () {
+          print('Presed ${nodePoint.id}');
+        },
         child: Container(
           child: Center(child: Text("${nodePoint.pm25?.toInt()}")),
-          decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: color
-          ),
+          decoration: BoxDecoration(shape: BoxShape.circle, color: color),
         ));
   }
 }

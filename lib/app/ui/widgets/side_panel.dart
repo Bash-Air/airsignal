@@ -48,10 +48,12 @@ class SidePanelApp extends StatelessWidget {
                 child: Row(
                   children: [
                     const Icon(Icons.warning, color: Colors.blue),
-                    TextButton(onPressed: () => Get.toNamed(Routes.report), child: const Text("Отправить жалобу",
-                        style: TextStyle(
-                            color: Colors.blue,
-                            fontFamily: "Arial, sans-serif")))
+                    TextButton(
+                        onPressed: () => Get.toNamed(Routes.report),
+                        child: const Text("Отправить жалобу",
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontFamily: "Arial, sans-serif")))
                   ],
                 ),
               ),
@@ -92,7 +94,7 @@ class SidePanelApp extends StatelessWidget {
                 ),
               ),
               Padding(
-                  padding: const EdgeInsets.fromLTRB(8, 30, 8, 8),
+                  padding: const EdgeInsets.fromLTRB(8, 15, 8, 8),
                   child: Row(children: [
                     IconButton(
                       icon: const Icon(
@@ -107,7 +109,7 @@ class SidePanelApp extends StatelessWidget {
                     )
                   ])),
               Padding(
-                  padding: const EdgeInsets.fromLTRB(8, 30, 8, 8),
+                  padding: const EdgeInsets.fromLTRB(8, 15, 8, 8),
                   child: Row(children: [
                     TextButton(
                       child: const Text("Instagram",
@@ -120,7 +122,7 @@ class SidePanelApp extends StatelessWidget {
                     )
                   ])),
               Padding(
-                  padding: const EdgeInsets.fromLTRB(8, 30, 8, 8),
+                  padding: const EdgeInsets.fromLTRB(8, 15, 8, 8),
                   child: Row(children: [
                     TextButton(
                       child: const Text("VK",
