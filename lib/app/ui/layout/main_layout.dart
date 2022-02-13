@@ -13,7 +13,8 @@ class MainLayout extends StatelessWidget {
     return Scaffold(
         key: scaffoldKey,
         drawer: const SidePanelApp(),
-        body: Row(children: [
+        body: Stack(children: [
+          children,
           Column(children: [
             Padding(
               padding: const EdgeInsets.all(20),
@@ -29,7 +30,6 @@ class MainLayout extends StatelessWidget {
               ),
             )
           ]),
-          children
         ]));
   }
 }

@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 class MapPoint extends StatelessWidget {
 
   final NodePoint nodePoint;
+
   const MapPoint({Key? key, required this.nodePoint}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     MaterialColor color = Colors.blueGrey;
 
     if (nodePoint.pm25 != null) {
@@ -23,12 +23,14 @@ class MapPoint extends StatelessWidget {
       }
     }
 
-    return Container(
-      child: Center(child: Text("${nodePoint.pm25}")),
-      decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: color
-      ),
-    );
+    return GestureDetector(
+        onTap: () { print('Presed ${nodePoint.id}'); },
+        child: Container(
+          child: Center(child: Text("${nodePoint.pm25?.toInt()}")),
+          decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: color
+          ),
+        ));
   }
 }

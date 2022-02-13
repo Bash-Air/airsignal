@@ -247,7 +247,7 @@ class Reportpage2Widget extends StatelessWidget {
                                   )),
                             ]))),
                   ]))),
-          Positioned(top: 362, left: 0, child: null),
+          Positioned(top: 362, left: 0, child: Text('null')),
           Positioned(
               top: 202,
               left: 16,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../layout/main_layout.dart';
+
 class ReportPage extends StatelessWidget {
   const ReportPage({Key? key}) : super(key: key);
 
@@ -8,7 +10,7 @@ class ReportPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Figma Flutter Generator ReportpageWidget - FRAME
-    return Container(
+    return MainLayout(children: Container(
         width: 375,
         height: 812,
         decoration: const BoxDecoration(
@@ -327,9 +329,9 @@ class ReportPage extends StatelessWidget {
                             width: 248,
                             height: 136,
                             child: Stack(children: <Widget>[
-                              Positioned(top: 0, left: 0, child: null),
-                              Positioned(top: 88, left: 0, child: null),
-                              Positioned(top: 44, left: 0, child: null),
+                              Positioned(top: 0, left: 0, child: Text('null')),
+                              Positioned(top: 88, left: 0, child: Text('null')),
+                              Positioned(top: 44, left: 0, child: Text('null')),
                             ]))),
                     const Positioned(
                         top: 0,
@@ -360,8 +362,8 @@ class ReportPage extends StatelessWidget {
                             width: 248,
                             height: 92,
                             child: Stack(children: [
-                              Positioned(top: 0, left: 0, child: null),
-                              Positioned(top: 44, left: 0, child: null),
+                              Positioned(top: 0, left: 0, child: Text('null')),
+                              Positioned(top: 44, left: 0, child: Text('null')),
                             ]))),
                     const Positioned(
                         top: 0,
@@ -416,6 +418,6 @@ class ReportPage extends StatelessWidget {
                               height: 1.5),
                         )),
                   ]))),
-        ]));
+        ])));
   }
 }

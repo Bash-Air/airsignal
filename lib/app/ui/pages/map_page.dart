@@ -21,31 +21,33 @@ class MapPage extends GetView<NodeController> {
     return MainLayout(children: Obx(() {
       return controller.loading
           ? const Text('Loading')
-          : FlutterMap(
-              options: MapOptions(
-                center: LatLng(53.6264616, 55.8851368),
-                zoom: 7.0,
-                maxZoom: 16,
-                minZoom: 3,
-                plugins: [VectorMapTilesPlugin()]
-              ),
-              layers: [
-                VectorTileLayerOptions(
-                    theme: _mapTheme(context),
-                    tileProviders: TileProviders(
-                        {'openmaptiles': _cachingTileProvider(_urlTemplate())})),
-                MarkerLayerOptions(
-                    markers: controller.nodePointList
-                        .map<Marker>((NodePoint node) => Marker(
-                              width: 50.0,
-                              height: 50.0,
-                              point: LatLng(node.location.latitude,
-                                  node.location.longitude),
-                              builder: (ctx) => MapPoint(nodePoint: node),
-                            ))
-                        .toList()),
-              ],
-            );
+          : Container(
+              decoration: const BoxDecoration(color: Color(0x00f7f7f7)),
+              child: FlutterMap(
+                options: MapOptions(
+                    center: LatLng(53.63, 55.95),
+                    zoom: 11.0,
+                    maxZoom: 18.0,
+                    minZoom: 3.0,
+                    plugins: [VectorMapTilesPlugin()]),
+                layers: [
+                  VectorTileLayerOptions(
+                      theme: _mapTheme(context),
+                      tileProviders: TileProviders({
+                        'openmaptiles': _cachingTileProvider(_urlTemplate())
+                      })),
+                  MarkerLayerOptions(
+                      markers: controller.nodePointList
+                          .map<Marker>((NodePoint node) => Marker(
+                                width: 50.0,
+                                height: 50.0,
+                                point: LatLng(node.location.latitude,
+                                    node.location.longitude),
+                                builder: (ctx) => MapPoint(nodePoint: node),
+                              ))
+                          .toList()),
+                ],
+              ));
     }));
   }
 
@@ -56,7 +58,7 @@ class MapPage extends GetView<NodeController> {
             // this is the maximum zoom of the provider, not the
             // maximum of the map. vector tiles are rendered
             // to larger sizes to support higher zoom levels
-            maximumZoom: 16),
+            maximumZoom: 14),
         maxSizeBytes: 1024 * 1024 * 2);
   }
 
