@@ -154,14 +154,14 @@ class PointPage extends GetView<NodeController> {
                           Container(
                             margin: const EdgeInsets.symmetric(vertical: 15),
                             child: const Text(
-                              'Здесь куча текста, бла бла бла бла. Рустам сказал напишет тут рекомендации',
+                              'Если чувствуете запах газа, то рекомендуем звонить в ЕДДС г.Стерлитамак и фиксировать жалобу по тел: 8-3473-20-00-45',
                               style: TextStyle(fontSize: 16),
                             ),
                           ),
                           Container(
                             margin: const EdgeInsets.symmetric(vertical: 15),
                             child: const Text(
-                              'Здесь куча текста, бла бла бла бла. Рустам сказал напишет тут рекомендации',
+                              'PM 2.5/10 - Это воздушный загрязнитель, твердые микрочастицы размером примерно от 10 нм до 2,5 мкм. В чистом воздухе их не должно быть! Подробнее https://bashair.ru/project/sensors/',
                               style: TextStyle(fontSize: 16),
                             ),
                           )
@@ -179,7 +179,7 @@ class PointPage extends GetView<NodeController> {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {
-                        launch("https://bashair.ru");
+                        launch("https://bashair.ru/help/");
                       },
                       child: const Text('Отправить жалобу',
                           style: TextStyle(
