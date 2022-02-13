@@ -10,7 +10,7 @@ class NodeProvider {
 
   all() async {
     try {
-      var uri = Uri.http('api.bashair.ru', '/node/all');
+      var uri = Uri.http('api.bashair.ru', '/node/all/');
       var response = await httpClient.get(uri, headers: {
         "Accept": "application/json",
       });
@@ -29,7 +29,7 @@ class NodeProvider {
     }
   }
 
-  byId(int nodeId) async {
+  byId(String nodeId) async {
     try {
       var uri = Uri.http('api.bashair.ru', '/node/$nodeId/');
       var response = await httpClient.get(uri, headers: {
@@ -49,7 +49,26 @@ class NodeProvider {
     }
   }
 
-  history(int nodeId) async {}
+  history(String nodeId) async {
+    try {
+      var uri = Uri.http('api.bashair.ru', '/node/$nodeId/history/');
+      var response = await httpClient.get(uri, headers: {
+        "Accept": "application/json",
+      });
+      if (response.statusCode == 200) {
+        Iterable jsonResponse = jsonDecode(response.body);
+        List<NodeHistoryTick> histories =
+            jsonResponse.map((data) => NodeHistoryTick.fromJson(data)).toList();
+        return histories;
+      } else {
+        // ignore: avoid_print
+        print('Error get Node');
+      }
+    } catch (e) {
+      // ignore: avoid_print, unnecessary_brace_in_string_interps
+      print('ERROR!!! ${e}');
+    }
+  }
 
   create() async {}
 }

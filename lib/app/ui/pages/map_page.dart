@@ -20,7 +20,7 @@ class MapPage extends GetView<NodesController> {
 
     return MainLayout(children: Obx(() {
       return controller.loading
-          ? const Text('Loading')
+          ? const Center(child: Text('Loading'))
           : Container(
               decoration: const BoxDecoration(color: Color(0x00f7f7f7)),
               child: FlutterMap(

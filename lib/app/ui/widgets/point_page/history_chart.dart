@@ -1,72 +1,49 @@
 /// Example of a time series chart using a bar renderer.
 
+import 'package:airsignal_flutter/app/data/model/node.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 
 class HistoryChart extends StatelessWidget {
-  final List<charts.Series<OrdinalSales, String>> seriesList;
+  final List<NodeHistoryTick> histories;
+
+  // final List<charts.Series<OrdinalSales, String>> seriesList;
   final bool animate;
 
-  const HistoryChart(this.seriesList, {Key? key, required this.animate}) : super(key: key);
+  const HistoryChart(this.histories, {Key? key, required this.animate})
+      : super(key: key);
 
-  factory HistoryChart.withSampleData() {
-    return HistoryChart(
-      _createSampleData(),
-      // Disable animations for image tests.
-      animate: false,
-    );
+  String _getTime(String time) {
+    var val = time.split('T').last.split(':');
+    return '${val[0]}:${val[1]}';
   }
 
-
-  @override
-  Widget build(BuildContext context) {
-    // Create the ticks to be used the domain axis.
-    final staticTicks = <charts.TickSpec<String>>[
-      const charts.TickSpec('2015'),
-      const charts.TickSpec('2016'),
-      const charts.TickSpec('2017'),
-      const charts.TickSpec('2023'),
-    ];
-
-    return charts.BarChart(
-      seriesList,
-      animate: animate,
-      domainAxis: charts.OrdinalAxisSpec(
-          tickProviderSpec:
-          charts.StaticOrdinalTickProviderSpec(staticTicks)),
-    );
-  }
-
-  /// Create series list with single series
-  static List<charts.Series<OrdinalSales, String>> _createSampleData() {
-    final globalSalesData = [
-      OrdinalSales('2014', 5000),
-      OrdinalSales('2015', 25000),
-      OrdinalSales('2016', 100000),
-      OrdinalSales('2017', 750000),
-      OrdinalSales('2018', 750000),
-      OrdinalSales('2019', 750000),
-      OrdinalSales('2020', 750000),
-      OrdinalSales('2021', 750000),
-      OrdinalSales('2022', 750000),
-      OrdinalSales('2023', 750000),
-    ];
-
+  List<charts.Series<NodeHistoryTick, String>> _createData() {
     return [
-      charts.Series<OrdinalSales, String>(
+      charts.Series<NodeHistoryTick, String>(
         id: 'Global Revenue',
-        domainFn: (OrdinalSales sales, _) => sales.year,
-        measureFn: (OrdinalSales sales, _) => sales.sales,
-        data: globalSalesData,
+        domainFn: (NodeHistoryTick tick, _) => _getTime(tick.time),
+        measureFn: (NodeHistoryTick tick, _) => tick.pm25 ?? 0,
+        data: histories,
       ),
     ];
   }
-}
 
-/// Sample ordinal data type.
-class OrdinalSales {
-  final String year;
-  final int sales;
+  @override
+  Widget build(BuildContext context) {
+    var data = _createData();
 
-  OrdinalSales(this.year, this.sales);
+    final staticTicks = <charts.TickSpec<String>>[
+      charts.TickSpec(_getTime(histories.first.time)),
+      charts.TickSpec(_getTime(histories[histories.length ~/ 2].time)),
+      charts.TickSpec(_getTime(histories.last.time))
+    ];
+
+    return charts.BarChart(
+      data,
+      animate: animate,
+      domainAxis: charts.OrdinalAxisSpec(
+          tickProviderSpec: charts.StaticOrdinalTickProviderSpec(staticTicks)),
+    );
+  }
 }

@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/point/1',
+      initialRoute: '/',
       theme: appThemeData,
       defaultTransition: Transition.fade,
       getPages: AppPages.pages,

@@ -1,5 +1,8 @@
 import 'package:airsignal_flutter/app/data/model/node.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../../routes/app_pages.dart';
 
 class MapPoint extends StatelessWidget {
   final NodePoint nodePoint;
@@ -24,7 +27,7 @@ class MapPoint extends StatelessWidget {
 
     return GestureDetector(
         onTap: () {
-          print('Presed ${nodePoint.id}');
+          Get.toNamed(Routes.pointPage.replaceAll(':node_id', '${nodePoint.id}'));
         },
         child: Container(
           child: Center(child: Text("${nodePoint.pm25?.toInt()}")),
