@@ -4,5 +4,5 @@ abstract class Routes {
   static const map = '/';
   static const report = '/report';
   static const instanceReport = '/report/instance';
-  static const mapPointPage = '/node/';
+  static const pointPage = '/point/:node_id';
 }

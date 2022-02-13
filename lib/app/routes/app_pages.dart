@@ -1,3 +1,4 @@
+import 'package:airsignal_flutter/app/ui/pages/point_page.dart';
 import 'package:get/get.dart';
 
 import '../bindings/map_binding.dart';
@@ -15,7 +16,7 @@ class AppPages {
         name: Routes.report,
         page: () => const ReportPage()),
     GetPage(
-        name: Routes.report,
-        page: () => const ReportPage()),
+        name: Routes.pointPage,
+        page: () => const PointPage()),
   ];
 }
