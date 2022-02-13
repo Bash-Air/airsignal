@@ -11,14 +11,15 @@ class MainLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        key: scaffoldKey,
-        drawer: SidePanelApp(),
-        body:
-          Stack(children: [
-            children,
-            Padding(
-              padding: const EdgeInsets.all(20),
-              child: IconButton(
+      key: scaffoldKey,
+      drawer: SidePanelApp(),
+      body: Stack(children: [
+        children,
+        Padding(
+          padding: const EdgeInsets.all(20),
+          child: Row(
+            children: [
+              IconButton(
                 icon: const Icon(
                   Icons.menu,
                   size: 40,
@@ -28,9 +29,22 @@ class MainLayout extends StatelessWidget {
                   scaffoldKey.currentState?.openDrawer();
                 },
               ),
-            ),
-          ]),
-        );
+              Spacer(),
+              IconButton(
+                icon: const Icon(
+                  Icons.warning,
+                  size: 40,
+                ),
+                color: Colors.blue,
+                onPressed: () {
+                  //Get.to(ReportPage);
+                },
+              ),
+            ],
+          ),
+        ),
+      ]),
+    );
   }
 }
 

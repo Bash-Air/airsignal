@@ -2,13 +2,11 @@ import 'package:airsignal_flutter/app/data/model/node.dart';
 import 'package:flutter/material.dart';
 
 class MapPoint extends StatelessWidget {
-
   final NodePoint nodePoint;
   const MapPoint({Key? key, required this.nodePoint}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     MaterialColor color = Colors.blueGrey;
 
     if (nodePoint.pm25 != null) {
@@ -23,12 +21,10 @@ class MapPoint extends StatelessWidget {
       }
     }
 
-    return Container(
-      child: Center(child: Text("${nodePoint.pm25}")),
-      decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: color
-      ),
-    );
+    return MaterialButton(
+        child: Center(child: Text("${nodePoint.pm25}")),
+        shape: const CircleBorder(),
+        color: color,
+        onPressed: () {});
   }
 }
