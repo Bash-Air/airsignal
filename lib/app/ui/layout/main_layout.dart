@@ -19,18 +19,18 @@ class MainLayout extends StatelessWidget {
         children,
         Row(
           children: [
-            Padding(
-                padding: const EdgeInsets.all(20),
-                child: IconButton(
-                  icon: const Icon(
-                    Icons.menu,
-                    size: 40,
-                  ),
-                  color: Colors.blue,
-                  onPressed: () {
-                    scaffoldKey.currentState?.openDrawer();
-                  },
-                )),
+            // Padding(
+            //     padding: const EdgeInsets.all(20),
+            //     child: IconButton(
+            //       icon: const Icon(
+            //         Icons.menu,
+            //         size: 40,
+            //       ),
+            //       color: Colors.blue,
+            //       onPressed: () {
+            //         scaffoldKey.currentState?.openDrawer();
+            //       },
+            //     )),
             Spacer(),
             Padding(
               padding: const EdgeInsets.all(20),
