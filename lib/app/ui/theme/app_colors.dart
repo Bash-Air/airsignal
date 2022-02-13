@@ -1,3 +1,3 @@
 import 'package:flutter/material.dart';
 
-final Color exampleColor = Colors.white;
+const Color exampleColor = Colors.white;

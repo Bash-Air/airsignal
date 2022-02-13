@@ -12,10 +12,9 @@ class MainLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         key: scaffoldKey,
-        drawer: SidePanelApp(),
-        body:
-          Stack(children: [
-            children,
+        drawer: const SidePanelApp(),
+        body: Row(children: [
+          Column(children: [
             Padding(
               padding: const EdgeInsets.all(20),
               child: IconButton(
@@ -28,9 +27,10 @@ class MainLayout extends StatelessWidget {
                   scaffoldKey.currentState?.openDrawer();
                 },
               ),
-            ),
+            )
           ]),
-        );
+          children
+        ]));
   }
 }
 

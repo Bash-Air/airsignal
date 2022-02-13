@@ -33,6 +33,7 @@ class NodePoint {
   String uid;
   String name;
   String description;
+  // ignore: non_constant_identifier_names
   int location_id;
   String city;
   double? pm25;
