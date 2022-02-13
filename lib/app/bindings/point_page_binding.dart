@@ -1,13 +1,13 @@
 import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
 
-import '../controllers/nodes_controller.dart';
+import '../controllers/node_controller.dart';
 import '../data/provider/node.dart';
 
-class MapBinding implements Bindings {
+class PointPageBinding implements Bindings {
   @override
   void dependencies() {
     var client = http.Client();
-    Get.put(NodesController(NodeProvider(client)));
+    Get.put(NodeController(NodeProvider(client)));
   }
 }

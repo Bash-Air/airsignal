@@ -1,4 +1,4 @@
-import 'package:airsignal_flutter/app/controllers/node_controller.dart';
+import 'package:airsignal_flutter/app/controllers/nodes_controller.dart';
 import 'package:vector_map_tiles/vector_map_tiles.dart';
 import 'package:vector_tile_renderer/vector_tile_renderer.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +11,7 @@ import '../layout/main_layout.dart';
 import '../theme/map/custom_theme.dart';
 import '../widgets/point/map_point.dart';
 
-class MapPage extends GetView<NodeController> {
+class MapPage extends GetView<NodesController> {
   const MapPage({Key? key}) : super(key: key);
 
   @override

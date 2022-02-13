@@ -49,3 +49,27 @@ Map<String, dynamic> _$NodePointToJson(NodePoint instance) => <String, dynamic>{
       'wind': instance.wind,
       'location': instance.location,
     };
+
+Node _$NodeFromJson(Map<String, dynamic> json) => Node(
+      json['id'] as int,
+      json['uid'] as String,
+      json['name'] as String,
+      json['description'] as String,
+      json['location_id'] as int,
+      json['city'] as String,
+      json['pm24'] as int?,
+      Wind.fromJson(json['wind'] as Map<String, dynamic>),
+      Location.fromJson(json['location'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$NodeToJson(Node instance) => <String, dynamic>{
+      'id': instance.id,
+      'uid': instance.uid,
+      'name': instance.name,
+      'description': instance.description,
+      'location_id': instance.location_id,
+      'city': instance.city,
+      'pm24': instance.pm24,
+      'wind': instance.wind,
+      'location': instance.location,
+    };

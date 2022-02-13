@@ -1,11 +1,11 @@
-import 'package:airsignal_flutter/app/controllers/node_controller.dart';
+import 'package:airsignal_flutter/app/controllers/nodes_controller.dart';
 import 'package:airsignal_flutter/app/ui/widgets/point_page/history_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../layout/main_layout.dart';
 
-class PointPage extends GetView<NodeController> {
+class PointPage extends GetView<NodesController> {
   const PointPage({Key? key}) : super(key: key);
 
   @override
@@ -47,7 +47,8 @@ class PointPage extends GetView<NodeController> {
                                   fontWeight: FontWeight.bold),
                             ),
                             Container(
-                              margin: const EdgeInsets.only(bottom: 13, left: 10),
+                              margin:
+                                  const EdgeInsets.only(bottom: 13, left: 10),
                               child: const Text(
                                 'PM2.5',
                                 style: TextStyle(
@@ -72,14 +73,19 @@ class PointPage extends GetView<NodeController> {
                     endIndent: 10,
                     color: Color(0x55000000),
                   ),
-                  Flexible(child: Column(
+                  Flexible(
+                      child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: const [
-                      Text('Температура: -10°', style: TextStyle(color: Color(0x66000000))),
-                      Text('Ветер: 12 м/с', style: TextStyle(color: Color(0x66000000))),
-                      Text('Влажность: 83%', style: TextStyle(color: Color(0x66000000))),
-                      Text('Давление: 1000 hPa', style: TextStyle(color: Color(0x66000000))),
+                      Text('Температура: -10°',
+                          style: TextStyle(color: Color(0x66000000))),
+                      Text('Ветер: 12 м/с',
+                          style: TextStyle(color: Color(0x66000000))),
+                      Text('Влажность: 83%',
+                          style: TextStyle(color: Color(0x66000000))),
+                      Text('Давление: 1000 hPa',
+                          style: TextStyle(color: Color(0x66000000))),
                     ],
                   )),
                 ],
@@ -92,7 +98,32 @@ class PointPage extends GetView<NodeController> {
           padding: const EdgeInsets.all(10),
           child: HistoryChart.withSampleData(),
         ),
-        Row()
+        Container(
+          padding: const EdgeInsets.all(10),
+          child: Row(
+            children: [
+              Flexible(
+                  child: Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 10),
+                    child: const Text(
+                      'Здесь куча текста, бла бла бла бла. Рустам сказал напишет тут рекомендации',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 10),
+                    child: const Text(
+                      'Здесь куча текста, бла бла бла бла. Рустам сказал напишет тут рекомендации',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  )
+                ],
+              ))
+            ],
+          ),
+        )
       ],
     ));
   }

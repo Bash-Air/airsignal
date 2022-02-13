@@ -48,3 +48,24 @@ class NodePoint {
 
   Map<String, dynamic> toJson() => _$NodePointToJson(this);
 }
+
+@JsonSerializable()
+class Node {
+  int id;
+  String uid;
+  String name;
+  String description;
+  int location_id;
+  String city;
+  int? pm24;
+  Wind wind;
+  Location location;
+
+  Node(this.id, this.uid, this.name, this.description, this.location_id,
+      this.city, this.pm24, this.wind, this.location);
+
+  factory Node.fromJson(Map<String, dynamic> json) =>
+      _$NodeFromJson(json);
+
+  Map<String, dynamic> toJson() => _$NodeToJson(this);
+}
