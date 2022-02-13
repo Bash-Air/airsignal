@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class MapPoint extends StatelessWidget {
   final NodePoint nodePoint;
+
   const MapPoint({Key? key, required this.nodePoint}) : super(key: key);
 
   @override
@@ -21,10 +22,13 @@ class MapPoint extends StatelessWidget {
       }
     }
 
-    return MaterialButton(
-        child: Center(child: Text("${nodePoint.pm25}")),
-        shape: const CircleBorder(),
-        color: color,
-        onPressed: () {});
+    return GestureDetector(
+        onTap: () {
+          print('Presed ${nodePoint.id}');
+        },
+        child: Container(
+          child: Center(child: Text("${nodePoint.pm25?.toInt()}")),
+          decoration: BoxDecoration(shape: BoxShape.circle, color: color),
+        ));
   }
 }

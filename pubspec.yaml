@@ -38,6 +38,8 @@ dependencies:
   flutter_map: ^0.14.0
   json_annotation: ^4.4.0
   url_launcher: ^6.0.20
+  vector_map_tiles: ^1.3.46
+  charts_flutter: ^0.12.0
 
 dev_dependencies:
   flutter_test:
@@ -77,10 +79,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+   - family: SF-Pro
+     fonts:
+       - asset: fonts/SF-Pro.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

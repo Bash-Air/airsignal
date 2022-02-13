@@ -14,25 +14,27 @@ class MainLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      drawer: SidePanelApp(),
+      drawer: const SidePanelApp(),
       body: Stack(children: [
         children,
-        Padding(
-          padding: const EdgeInsets.all(20),
-          child: Row(
-            children: [
-              IconButton(
-                icon: const Icon(
-                  Icons.menu,
-                  size: 40,
-                ),
-                color: Colors.blue,
-                onPressed: () {
-                  scaffoldKey.currentState?.openDrawer();
-                },
-              ),
-              Spacer(),
-              IconButton(
+        Row(
+          children: [
+            Padding(
+                padding: const EdgeInsets.all(20),
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.menu,
+                    size: 40,
+                  ),
+                  color: Colors.blue,
+                  onPressed: () {
+                    scaffoldKey.currentState?.openDrawer();
+                  },
+                )),
+            Spacer(),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: IconButton(
                 icon: const Icon(
                   Icons.warning,
                   size: 40,
@@ -42,8 +44,8 @@ class MainLayout extends StatelessWidget {
                   Get.to(ReportPage());
                 },
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ]),
     );

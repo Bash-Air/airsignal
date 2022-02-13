@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:get/get.dart';
+
+import '../../routes/app_pages.dart';
 
 class SidePanelApp extends StatelessWidget {
   const SidePanelApp({Key? key}) : super(key: key);
@@ -43,12 +46,14 @@ class SidePanelApp extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
-                  children: const [
-                    Icon(Icons.warning, color: Colors.blue),
-                    Text("Отправить жалобу",
-                        style: TextStyle(
-                            color: Colors.blue,
-                            fontFamily: "Arial, sans-serif"))
+                  children: [
+                    const Icon(Icons.warning, color: Colors.blue),
+                    TextButton(
+                        onPressed: () => Get.toNamed(Routes.report),
+                        child: const Text("Отправить жалобу",
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontFamily: "Arial, sans-serif")))
                   ],
                 ),
               ),
@@ -89,7 +94,7 @@ class SidePanelApp extends StatelessWidget {
                 ),
               ),
               Padding(
-                  padding: const EdgeInsets.fromLTRB(8, 30, 8, 8),
+                  padding: const EdgeInsets.fromLTRB(8, 15, 8, 8),
                   child: Row(children: [
                     IconButton(
                       icon: const Icon(
@@ -104,7 +109,7 @@ class SidePanelApp extends StatelessWidget {
                     )
                   ])),
               Padding(
-                  padding: const EdgeInsets.fromLTRB(8, 30, 8, 8),
+                  padding: const EdgeInsets.fromLTRB(8, 15, 8, 8),
                   child: Row(children: [
                     TextButton(
                       child: const Text("Instagram",
@@ -117,7 +122,7 @@ class SidePanelApp extends StatelessWidget {
                     )
                   ])),
               Padding(
-                  padding: const EdgeInsets.fromLTRB(8, 30, 8, 8),
+                  padding: const EdgeInsets.fromLTRB(8, 15, 8, 8),
                   child: Row(children: [
                     TextButton(
                       child: const Text("VK",

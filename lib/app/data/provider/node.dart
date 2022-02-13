@@ -10,13 +10,11 @@ class NodeProvider {
 
   all() async {
     try {
-      var uri = Uri.https('api.bashair.ru', '/node/all');
+      var uri = Uri.http('api.bashair.ru', '/node/all');
       var response = await httpClient.get(uri, headers: {
         "Accept": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Headers": "Access-Control-Allow-Origin, Accept",
-        "Access-Control-Allow-Methods": "POST, OPTIONS"
+        // "Access-Control-Allow-Origin": "*",
+        // "Access-Control_Allow_Origin": "*",
       });
       if (response.statusCode == 200) {
         Iterable jsonResponse = jsonDecode(response.body);
