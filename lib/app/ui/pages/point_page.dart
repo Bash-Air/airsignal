@@ -35,8 +35,8 @@ class PointPage extends GetView<NodeController> {
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: const BorderRadius.only(
-                          bottomLeft: Radius.circular(20),
-                          bottomRight: Radius.circular(20)),
+                          bottomLeft: Radius.circular(15),
+                          bottomRight: Radius.circular(15)),
                       gradient: LinearGradient(
                         begin: Alignment.topRight,
                         end: Alignment.bottomLeft,
@@ -46,7 +46,7 @@ class PointPage extends GetView<NodeController> {
                     margin:
                         const EdgeInsets.only(top: 60, left: 20, bottom: 30),
                     child: SizedBox(
-                      height: 120,
+                      height: 140,
                       child: Row(
                         children: [
                           Flexible(
@@ -54,35 +54,41 @@ class PointPage extends GetView<NodeController> {
                               mainAxisSize: MainAxisSize.min,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Text(
-                                      controller.node?.pm25
-                                              ?.toInt()
-                                              .toString() ??
-                                          "~",
-                                      style: const TextStyle(
-                                          height: 1,
-                                          fontSize: 90,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Container(
-                                      margin: const EdgeInsets.only(
-                                          bottom: 13, left: 10),
-                                      child: const Text(
-                                        'PM2.5',
-                                        style: TextStyle(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold,
-                                            color: Color(0x66000000)),
+                                Expanded(
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Text(
+                                        controller.node?.pm25
+                                                ?.toInt()
+                                                .toString() ??
+                                            "~",
+                                        style: const TextStyle(
+                                            height: 1,
+                                            fontSize: 100,
+                                            fontWeight: FontWeight.bold),
                                       ),
-                                    ),
-                                  ],
+                                      Container(
+                                        margin: const EdgeInsets.only(
+                                            bottom: 13, left: 10),
+                                        child: const Text(
+                                          'PM2.5',
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold,
+                                              color: Color(0x66000000)),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                                Text(
-                                  '${controller.node?.city}, ${controller.node?.name}',
-                                  style: const TextStyle(fontSize: 14),
+                                Container(
+                                  margin: const EdgeInsets.only(bottom: 9),
+                                  alignment: Alignment.bottomLeft,
+                                  child: Text(
+                                    '${controller.node?.city}, ${controller.node?.name}',
+                                    style: const TextStyle(fontSize: 14),
+                                  ),
                                 ),
                               ],
                             ),
