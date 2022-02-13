@@ -145,14 +145,14 @@ class PointPage extends GetView<NodeController> {
                           child: Column(
                         children: [
                           Container(
-                            margin: const EdgeInsets.symmetric(vertical: 10),
+                            margin: const EdgeInsets.symmetric(vertical: 15),
                             child: const Text(
                               'Здесь куча текста, бла бла бла бла. Рустам сказал напишет тут рекомендации',
                               style: TextStyle(fontSize: 16),
                             ),
                           ),
                           Container(
-                            margin: const EdgeInsets.symmetric(vertical: 10),
+                            margin: const EdgeInsets.symmetric(vertical: 15),
                             child: const Text(
                               'Здесь куча текста, бла бла бла бла. Рустам сказал напишет тут рекомендации',
                               style: TextStyle(fontSize: 16),
