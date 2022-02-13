@@ -26,7 +26,7 @@ class SidePanelApp extends StatelessWidget {
           ]),
         ),
         Padding(
-          padding: const EdgeInsets.fromLTRB(30, 45, 30, 30),
+          padding: const EdgeInsets.fromLTRB(30, 30, 30, 30),
           child: Column(children: const [
             Icon(Icons.account_circle, size: 60),
             Text(
@@ -94,7 +94,7 @@ class SidePanelApp extends StatelessWidget {
                 ),
               ),
               Padding(
-                  padding: const EdgeInsets.fromLTRB(8, 15, 8, 8),
+                  padding: const EdgeInsets.all(2),
                   child: Row(children: [
                     IconButton(
                       icon: const Icon(
@@ -109,7 +109,7 @@ class SidePanelApp extends StatelessWidget {
                     )
                   ])),
               Padding(
-                  padding: const EdgeInsets.fromLTRB(8, 15, 8, 8),
+                  padding: const EdgeInsets.all(2),
                   child: Row(children: [
                     TextButton(
                       child: const Text("Instagram",
@@ -122,7 +122,7 @@ class SidePanelApp extends StatelessWidget {
                     )
                   ])),
               Padding(
-                  padding: const EdgeInsets.fromLTRB(8, 15, 8, 8),
+                  padding: const EdgeInsets.fromLTRB(0, 2, 0, 0),
                   child: Row(children: [
                     TextButton(
                       child: const Text("VK",

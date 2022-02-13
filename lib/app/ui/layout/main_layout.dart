@@ -41,7 +41,7 @@ class MainLayout extends StatelessWidget {
                 ),
                 color: Colors.blue,
                 onPressed: () {
-                  Get.to(ReportPage());
+                  Get.to(const ReportPage());
                 },
               ),
             ),

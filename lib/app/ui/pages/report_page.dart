@@ -1,443 +1,187 @@
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
-import '../layout/main_layout.dart';
-
-class ReportPage extends StatelessWidget {
+class ReportPage extends StatefulWidget {
   const ReportPage({Key? key}) : super(key: key);
 
-  get child => null;
+  ReportPageState createState() => ReportPageState();
+}
+
+class ReportPageState extends State<ReportPage> {
+  String location = "";
+  String experience = "";
+
+  String latitude = "0";
+  String longitude = "0";
+
+  bool? headAche = false;
+  bool? faint = false;
+  bool? sore = false;
+
+  bool? burn = false;
+  bool? chem = false;
+  bool? otherSmell = false;
+
+  send() async {
+    try {
+      var uri = Uri.http('api.bashair.ru', '/signal');
+      var response = await http.post(uri, headers: {
+        "Accept": "application/json",
+        "text": experience,
+        "location": location,
+        "latitude": latitude,
+
+        // "Access-Control-Allow-Origin": "*",
+        // "Access-Control_Allow_Origin": "*",
+      });
+      if (!(response.statusCode == 200)) {
+        // ignore: avoid_print
+        print('Error sending signal');
+      }
+    } catch (e) {
+      // ignore: avoid_print, unnecessary_brace_in_string_interps
+      print('ERROR!!! ${e}');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    // Figma Flutter Generator ReportpageWidget - FRAME
-    return MainLayout(
-        children: Container(
-            width: 375,
-            height: 812,
-            decoration: const BoxDecoration(
-              color: Color.fromRGBO(255, 255, 255, 1),
-            ),
-            child: Stack(children: <Widget>[
-              Positioned(
-                  top: 611,
-                  left: 16,
-                  child: SizedBox(
-                      width: 343,
-                      height: 74,
-                      child: Stack(children: <Widget>[
-                        Positioned(
-                            top: 0,
-                            left: 0,
-                            child: Container(
-                                width: 343,
-                                height: 74,
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(8),
-                                    topRight: Radius.circular(8),
-                                    bottomLeft: Radius.circular(8),
-                                    bottomRight: Radius.circular(8),
-                                  ),
-                                  color: Color.fromRGBO(241, 245, 255, 1),
-                                ))),
-                        const Positioned(
-                            top: 16,
-                            left: 16,
-                            child: Text(
-                              'Расскажите что вы почувствовали...',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  color: Color.fromRGBO(
-                                      145, 162, 207, 0.4000000059604645),
-                                  fontFamily: 'SF Pro Display',
-                                  fontSize: 16,
-                                  letterSpacing: 0,
-                                  fontWeight: FontWeight.normal,
-                                  height: 1.5),
-                            )),
-                      ]))),
-              Positioned(
-                  top: 429,
-                  left: 16,
-                  child: Container(
-                      width: 248,
-                      height: 48,
-                      decoration: const BoxDecoration(
-                        color: Color.fromRGBO(255, 255, 255, 1),
-                      ))),
-              const Positioned(
-                  top: 443,
-                  left: 88,
-                  child: Text(
-                    '// Value',
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                        color: Color.fromRGBO(27, 181, 92, 1),
-                        fontFamily: 'Inter',
-                        fontSize: 16,
-                        letterSpacing: 0,
-                        fontWeight: FontWeight.normal,
-                        height: 1.5),
-                  )),
-              Positioned(
-                  top: 477,
-                  left: 16,
-                  child: Container(
-                      width: 248,
-                      height: 48,
-                      decoration: const BoxDecoration(
-                        color: Color.fromRGBO(255, 255, 255, 1),
-                      ))),
-              const Positioned(
-                  top: 491,
-                  left: 88,
-                  child: Text(
-                    '// Value',
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                        color: Color.fromRGBO(27, 181, 92, 1),
-                        fontFamily: 'Inter',
-                        fontSize: 16,
-                        letterSpacing: 0,
-                        fontWeight: FontWeight.normal,
-                        height: 1.5),
-                  )),
-              Positioned(
-                  top: 525,
-                  left: 16,
-                  child: Container(
-                      width: 248,
-                      height: 48,
-                      decoration: const BoxDecoration(
-                        color: Color.fromRGBO(255, 255, 255, 1),
-                      ))),
-              const Positioned(
-                  top: 539,
-                  left: 88,
-                  child: Text(
-                    '// Value',
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                        color: Color.fromRGBO(27, 181, 92, 1),
-                        fontFamily: 'Inter',
-                        fontSize: 16,
-                        letterSpacing: 0,
-                        fontWeight: FontWeight.normal,
-                        height: 1.5),
-                  )),
-              Positioned(
-                  top: 711,
-                  left: 16,
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30),
-                        topRight: Radius.circular(30),
-                        bottomLeft: Radius.circular(30),
-                        bottomRight: Radius.circular(30),
-                      ),
-                      color: Color.fromRGBO(128, 163, 255, 1),
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 110, vertical: 22),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: const <Widget>[
-                        Text(
-                          'Отправить',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              color: Color.fromRGBO(255, 255, 255, 1),
-                              fontFamily: 'SF Pro Display',
-                              fontSize: 18,
-                              letterSpacing: 0,
-                              fontWeight: FontWeight.normal,
-                              height: 1.3333333333333333),
-                        ),
-                      ],
-                    ),
-                  )),
-              Positioned(
-                  top: 51,
-                  left: 16,
-                  child: SizedBox(
-                      width: 228,
-                      height: 43,
-                      child: Stack(children: <Widget>[
-                        const Positioned(
-                            top: 7,
-                            left: 53,
-                            child: Text(
-                              'Форма жалобы',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  color: Color.fromRGBO(0, 0, 0, 1),
-                                  fontFamily: 'SF Pro Display',
-                                  fontSize: 24,
-                                  letterSpacing: 0,
-                                  fontWeight: FontWeight.normal,
-                                  height: 1),
-                            )),
-                        Positioned(
-                            top: 0,
-                            left: 0,
-                            child: SizedBox(
-                                width: 43,
-                                height: 43,
-                                child: Stack(children: <Widget>[
-                                  Positioned(
-                                      top: 0,
-                                      left: 0,
-                                      child: Container(
-                                          width: 43,
-                                          height: 43,
-                                          decoration: BoxDecoration(
-                                            color: const Color.fromRGBO(
-                                                255, 255, 255, 1),
-                                            border: Border.all(
-                                              color: const Color.fromRGBO(
-                                                  241, 245, 255, 1),
-                                              width: 1,
-                                            ),
-                                            borderRadius:
-                                                const BorderRadius.all(
-                                                    Radius.elliptical(43, 43)),
-                                          ))),
-                                  Positioned(
-                                      top: 13,
-                                      left: 10,
-                                      child: Container(
-                                        decoration: const BoxDecoration(),
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 0, vertical: 0),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: <Widget>[
-                                            Container(
-                                                width: 22,
-                                                height: 3,
-                                                decoration: const BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.only(
-                                                    topLeft:
-                                                        Radius.circular(10),
-                                                    topRight:
-                                                        Radius.circular(10),
-                                                    bottomLeft:
-                                                        Radius.circular(10),
-                                                    bottomRight:
-                                                        Radius.circular(10),
-                                                  ),
-                                                  color: Color.fromRGBO(
-                                                      51, 51, 51, 1),
-                                                )),
-                                            const SizedBox(height: 4),
-                                            Container(
-                                                width: 22,
-                                                height: 3,
-                                                decoration: const BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.only(
-                                                    topLeft:
-                                                        Radius.circular(10),
-                                                    topRight:
-                                                        Radius.circular(10),
-                                                    bottomLeft:
-                                                        Radius.circular(10),
-                                                    bottomRight:
-                                                        Radius.circular(10),
-                                                  ),
-                                                  color: Color.fromRGBO(
-                                                      51, 51, 51, 1),
-                                                )),
-                                            const SizedBox(height: 4),
-                                            Container(
-                                                width: 22,
-                                                height: 3,
-                                                decoration: const BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.only(
-                                                    topLeft:
-                                                        Radius.circular(10),
-                                                    topRight:
-                                                        Radius.circular(10),
-                                                    bottomLeft:
-                                                        Radius.circular(10),
-                                                    bottomRight:
-                                                        Radius.circular(10),
-                                                  ),
-                                                  color: Color.fromRGBO(
-                                                      51, 51, 51, 1),
-                                                )),
-                                          ],
-                                        ),
-                                      )),
-                                ]))),
-                      ]))),
-              Positioned(
-                  top: 178,
-                  left: 16,
-                  child: SizedBox(
-                      width: 343,
-                      height: 69,
-                      child: Stack(children: <Widget>[
-                        Positioned(
-                            top: 0,
-                            left: 0,
-                            child: SizedBox(
-                                width: 343,
-                                height: 69,
-                                child: Stack(children: <Widget>[
-                                  Positioned(
-                                      top: 0,
-                                      left: 0,
-                                      child: Container(
-                                          width: 343,
-                                          height: 69,
-                                          decoration: const BoxDecoration(
-                                            borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(6),
-                                              topRight: Radius.circular(6),
-                                              bottomLeft: Radius.circular(6),
-                                              bottomRight: Radius.circular(6),
-                                            ),
-                                            color: Color.fromRGBO(
-                                                128, 163, 255, 1),
-                                          ))),
-                                ]))),
-                        Positioned(
-                            top: 24,
-                            left: 64,
-                            child: Container(
-                              decoration: const BoxDecoration(),
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 0, vertical: 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: const <Widget>[
-                                  Text(
-                                    'Покажите что вокруг вас',
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                        color: Color.fromRGBO(255, 255, 255, 1),
-                                        fontFamily: 'SF Pro Display',
-                                        fontSize: 18,
-                                        letterSpacing: 0,
-                                        fontWeight: FontWeight.normal,
-                                        height: 1.3333333333333333),
-                                  ),
-                                ],
-                              ),
-                            )),
-                      ]))),
-              Positioned(
-                  top: 271,
-                  left: 6,
-                  child: SizedBox(
-                      width: 275,
-                      height: 173,
-                      child: Stack(children: <Widget>[
-                        Positioned(
-                            top: 37,
-                            left: 0,
-                            child: SizedBox(
-                                width: 248,
-                                height: 136,
-                                child: Stack(children: <Widget>[
-                                  Positioned(
-                                      top: 0, left: 0, child: Text('null')),
-                                  Positioned(
-                                      top: 88, left: 0, child: Text('null')),
-                                  Positioned(
-                                      top: 44, left: 0, child: Text('null')),
-                                ]))),
-                        const Positioned(
-                            top: 0,
-                            left: 12,
-                            child: Text(
-                              'Какие у вас симптомы?',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  color: Color.fromRGBO(0, 0, 0, 1),
-                                  fontFamily: 'SF Pro Display',
-                                  fontSize: 24,
-                                  letterSpacing: 0,
-                                  fontWeight: FontWeight.normal,
-                                  height: 1),
-                            )),
-                      ]))),
-              Positioned(
-                  top: 470,
-                  left: 6,
-                  child: SizedBox(
-                      width: 248,
-                      height: 129,
-                      child: Stack(children: [
-                        Positioned(
-                            top: 37,
-                            left: 0,
-                            child: SizedBox(
-                                width: 248,
-                                height: 92,
-                                child: Stack(children: [
-                                  Positioned(
-                                      top: 0, left: 0, child: Text('null')),
-                                  Positioned(
-                                      top: 44, left: 0, child: Text('null')),
-                                ]))),
-                        const Positioned(
-                            top: 0,
-                            left: 12,
-                            child: Text(
-                              'На что похож запах?',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  color: Color.fromRGBO(0, 0, 0, 1),
-                                  fontFamily: 'SF Pro Display',
-                                  fontSize: 24,
-                                  letterSpacing: 0,
-                                  fontWeight: FontWeight.normal,
-                                  height: 1),
-                            )),
-                      ]))),
-              Positioned(
-                  top: 110,
-                  left: 16,
-                  child: SizedBox(
-                      width: 343,
-                      height: 52,
-                      child: Stack(children: <Widget>[
-                        Positioned(
-                            top: 0,
-                            left: 0,
-                            child: Container(
-                                width: 343,
-                                height: 52,
-                                decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(6),
-                                    topRight: Radius.circular(6),
-                                    bottomLeft: Radius.circular(6),
-                                    bottomRight: Radius.circular(6),
-                                  ),
-                                  color: Color.fromRGBO(241, 245, 255, 1),
-                                ))),
-                        const Positioned(
-                            top: 14,
-                            left: 15,
-                            child: Text(
-                              'Ваша локация',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  color: Color.fromRGBO(
-                                      145, 162, 207, 0.4000000059604645),
-                                  fontFamily: '?????',
-                                  fontSize: 16,
-                                  letterSpacing: 0,
-                                  fontWeight: FontWeight.normal,
-                                  height: 1.5),
-                            )),
-                      ]))),
-            ])));
+    return Scaffold(
+        body: SingleChildScrollView(
+      child: Column(children: [
+        const Padding(
+            padding: EdgeInsets.all(10),
+            child: Text(
+              "Форма жалобы",
+              style: TextStyle(fontSize: 40),
+              textAlign: TextAlign.left,
+            )),
+        Padding(
+            padding: EdgeInsets.all(10),
+            child: TextField(
+                decoration: InputDecoration(hintText: "Ваша локация"),
+                onChanged: (locationChange) {
+                  location = locationChange;
+                })),
+        Padding(
+            padding: const EdgeInsets.all(10),
+            child: MaterialButton(
+              color: Colors.blue,
+              child: Row(
+                children: const [
+                  Text("покажите, что вокруг вас",
+                      style: TextStyle(color: Colors.white)),
+                  Icon(
+                    Icons.camera_alt,
+                    color: Colors.white,
+                  )
+                ],
+              ),
+              onPressed: () {},
+            )),
+        Padding(
+            padding: const EdgeInsets.all(10),
+            child: Column(children: [
+              Text("Какие у вас симптомы?"),
+              Row(
+                children: [
+                  Checkbox(
+                      value: headAche,
+                      onChanged: (headAcheChange) {
+                        setState(() {
+                          headAche = headAcheChange;
+                        });
+                      }),
+                  Text("Болит голова")
+                ],
+              ),
+              Row(
+                children: [
+                  Checkbox(
+                      value: faint,
+                      onChanged: (faintChange) {
+                        setState(() {
+                          faint = faintChange;
+                        });
+                      }),
+                  Text("Обморок")
+                ],
+              ),
+              Row(
+                children: [
+                  Checkbox(
+                      value: sore,
+                      onChanged: (soreChange) {
+                        setState(() {
+                          sore = soreChange;
+                        });
+                      }),
+                  Text("Першит горло")
+                ],
+              )
+            ])),
+        Padding(
+            padding: EdgeInsets.all(10),
+            child: Column(children: [
+              Text("На что похож запах?"),
+              Row(
+                children: [
+                  Checkbox(
+                      value: burn,
+                      onChanged: (burnChange) {
+                        setState(() {
+                          burn = burnChange;
+                        });
+                      }),
+                  Text("Гарь")
+                ],
+              ),
+              Row(
+                children: [
+                  Checkbox(
+                      value: chem,
+                      onChanged: (chemChange) {
+                        setState(() {
+                          chem = chemChange;
+                        });
+                      }),
+                  Text("Химическийй запах")
+                ],
+              ),
+              Row(
+                children: [
+                  Checkbox(
+                      value: otherSmell,
+                      onChanged: (otherSmellChange) {
+                        setState(() {
+                          otherSmell = otherSmellChange;
+                        });
+                      }),
+                  Text("другое")
+                ],
+              )
+            ])),
+        Padding(
+            padding: EdgeInsets.all(10),
+            child: TextField(
+                decoration: InputDecoration(hintText: "Что вы почувствовали?"),
+                onChanged: (expChange) {
+                  experience = expChange;
+                })),
+        Padding(
+            padding: const EdgeInsets.all(10),
+            child: MaterialButton(
+              color: Colors.blue,
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  "Отправить",
+                  style: TextStyle(fontSize: 30, color: Colors.white),
+                ),
+              ),
+              onPressed: () {},
+            )),
+      ]),
+    ));
   }
 }
