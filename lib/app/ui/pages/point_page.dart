@@ -167,9 +167,11 @@ class PointPage extends GetView<NodeController> {
                       onPressed: () {
                         launch("https://bashair.ru");
                       },
-                      child: const Text('Жалоба'),
+                      child: const Text('Отправить жалобу',
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold)),
                       style: ElevatedButton.styleFrom(
-                          primary: Color(0xFFFF9356),
+                          primary: const Color(0xFFFF9356),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20))),
                     ),
