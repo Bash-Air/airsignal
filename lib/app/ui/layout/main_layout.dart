@@ -1,4 +1,6 @@
+import 'package:airsignal_flutter/app/ui/pages/report_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 // ignore: unused_import
 
 import '../widgets/side_panel.dart';
@@ -37,7 +39,7 @@ class MainLayout extends StatelessWidget {
                 ),
                 color: Colors.blue,
                 onPressed: () {
-                  //Get.to(ReportPage);
+                  Get.to(ReportPage());
                 },
               ),
             ],

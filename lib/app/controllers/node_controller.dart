@@ -10,6 +10,7 @@ class NodeController extends GetxController {
   get loading => _loading.value;
 
   final _nodePointList = <NodePoint>[].obs;
+  // ignore: invalid_use_of_protected_member
   get nodePointList => _nodePointList.value;
 
   fetchNodePoints() async {

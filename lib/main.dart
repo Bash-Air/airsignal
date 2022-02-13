@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'app/routes/app_pages.dart';
+import 'app/ui/pages/report_page.dart';
 import 'app/ui/theme/app_theme.dart';
 
 var app = const MyApp();
-
-void main() {
-  runApp(app);
-}
+var test = const ReportPage();
+void main() => runApp(app);
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

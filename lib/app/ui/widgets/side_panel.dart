@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SidePanelApp extends StatelessWidget {
+  const SidePanelApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -14,7 +16,7 @@ class SidePanelApp extends StatelessWidget {
                 onPressed: () {
                   Navigator.pop(context);
                 }, // close drawer
-                icon: Icon(
+                icon: const Icon(
                   Icons.close,
                   size: 30,
                 ))
@@ -22,7 +24,7 @@ class SidePanelApp extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.fromLTRB(30, 45, 30, 30),
-          child: Column(children: [
+          child: Column(children: const [
             Icon(Icons.account_circle, size: 60),
             Text(
               "Гость",
@@ -41,7 +43,7 @@ class SidePanelApp extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
-                  children: [
+                  children: const [
                     Icon(Icons.warning, color: Colors.blue),
                     Text("Отправить жалобу",
                         style: TextStyle(
@@ -53,7 +55,7 @@ class SidePanelApp extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
-                  children: [
+                  children: const [
                     Icon(Icons.person, color: Colors.blue),
                     Text("Мой профиль",
                         style: TextStyle(
@@ -65,7 +67,7 @@ class SidePanelApp extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
-                  children: [
+                  children: const [
                     Icon(Icons.description, color: Colors.blue),
                     Text("Новости",
                         style: TextStyle(
@@ -77,7 +79,7 @@ class SidePanelApp extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
-                  children: [
+                  children: const [
                     Icon(Icons.question_answer, color: Colors.blue),
                     Text("FAQ",
                         style: TextStyle(
@@ -90,12 +92,12 @@ class SidePanelApp extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(8, 30, 8, 8),
                   child: Row(children: [
                     IconButton(
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.language,
                         color: Colors.blue,
                       ),
                       onPressed: () async {
-                        final url = "https://bashair.ru";
+                        const url = "https://bashair.ru";
 
                         launch(url);
                       },
@@ -105,10 +107,10 @@ class SidePanelApp extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(8, 30, 8, 8),
                   child: Row(children: [
                     TextButton(
-                      child: Text("Instagram",
+                      child: const Text("Instagram",
                           style: TextStyle(color: Colors.blue)),
                       onPressed: () async {
-                        final url = "https://www.instagram.com/za_vozdyh_str/";
+                        const url = "https://www.instagram.com/za_vozdyh_str/";
 
                         launch(url);
                       },
@@ -118,9 +120,10 @@ class SidePanelApp extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(8, 30, 8, 8),
                   child: Row(children: [
                     TextButton(
-                      child: Text("VK", style: TextStyle(color: Colors.blue)),
+                      child: const Text("VK",
+                          style: TextStyle(color: Colors.blue)),
                       onPressed: () async {
-                        final url = "https://vk.com/vozduh_str";
+                        const url = "https://vk.com/vozduh_str";
 
                         launch(url);
                       },
