@@ -22,9 +22,11 @@ class NodeProvider {
             jsonResponse.map((data) => NodePoint.fromJson(data)).toList();
         return listNodePoint;
       } else {
+        // ignore: avoid_print
         print('Error get Node points');
       }
     } catch (e) {
+      // ignore: avoid_print, unnecessary_brace_in_string_interps
       print('ERROR!!! ${e}');
     }
   }
