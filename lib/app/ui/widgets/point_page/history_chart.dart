@@ -3,6 +3,7 @@
 import 'package:airsignal_flutter/app/data/model/node.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
+// ignore: implementation_imports
 import 'package:charts_common/src/common/color.dart' as chart;
 
 class HistoryChart extends StatelessWidget {
@@ -36,11 +37,10 @@ class HistoryChart extends StatelessWidget {
           var hsl = HSLColor.fromAHSL(1, val, 1, 0.47);
           var color = hsl.toColor();
           return chart.Color(
-            r: color.red,
-            g: color.green,
-            b: color.blue,
-            a: (255 * color.opacity).toInt()
-          );
+              r: color.red,
+              g: color.green,
+              b: color.blue,
+              a: (255 * color.opacity).toInt());
         },
         domainFn: (NodeHistoryTick tick, _) => _getTime(tick.time),
         measureFn: (NodeHistoryTick tick, _) => tick.pm25 ?? 0,

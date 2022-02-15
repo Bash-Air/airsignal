@@ -58,7 +58,13 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-
+  fonts:
+    - family: SFProDisplay-Semibold
+      fonts:
+        - asset: assets\SFProDisplay-Semibold.ttf
+    - family: SFProDisplay-Regular
+      fonts:
+        - asset: assets\SFProDisplay-Regular.ttf
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -79,10 +85,7 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-   - family: SF-Pro
-     fonts:
-       - asset: fonts/SF-Pro.ttf
+  
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

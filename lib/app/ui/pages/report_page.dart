@@ -1,6 +1,5 @@
 import 'package:airsignal_flutter/app/ui/pages/report2_page.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
@@ -52,40 +51,79 @@ class ReportPageState extends State<ReportPage> {
     return Scaffold(
         body: SingleChildScrollView(
       child: Column(children: [
+        const SizedBox(height: 40),
         const Padding(
             padding: EdgeInsets.all(10),
             child: Text(
               "Форма жалобы",
-              style: TextStyle(fontSize: 40),
-              textAlign: TextAlign.left,
+              style:
+                  TextStyle(fontFamily: 'SFProDisplay-Semibold', fontSize: 24),
             )),
-        Padding(
-            padding: EdgeInsets.all(10),
+        const Padding(
+            padding: EdgeInsets.all(20),
             child: TextField(
-                decoration: InputDecoration(hintText: "Ваша локация"),
-                onChanged: (locationChange) {
-                  location = locationChange;
-                })),
+              style: TextStyle(fontFamily: 'SFProDisplay-Regular'),
+              obscureText: true,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Ваша локация',
+              ),
+            )),
+        SizedBox(
+          width: 343,
+          height: 69,
+          child: MaterialButton(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+            color: Colors.blue,
+            child: Row(
+              children: const [
+                Icon(
+                  Icons.camera_alt,
+                  color: Colors.white,
+                ),
+                Expanded(
+                  child: Text(
+                    "Покажите, что вокруг вас",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'SFProDisplay-Semibold',
+                        color: Colors.white,
+                        fontSize: 18),
+                  ),
+                ),
+              ],
+            ),
+            onPressed: () {},
+          ),
+        ),
+        const SizedBox(height: 10),
+        // Текст
         Padding(
             padding: const EdgeInsets.all(10),
-            child: MaterialButton(
-              color: Colors.blue,
-              child: Row(
-                children: const [
-                  Text("покажите, что вокруг вас",
-                      style: TextStyle(color: Colors.white)),
-                  Icon(
-                    Icons.camera_alt,
-                    color: Colors.white,
-                  )
-                ],
-              ),
-              onPressed: () {},
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: const [
+                Text(
+                  "Какие у вас симптомы?",
+                  style: TextStyle(
+                      fontFamily: 'SFProDisplay-Semibold', fontSize: 24),
+                  textAlign: TextAlign.left,
+                ),
+              ],
             )),
         Padding(
-            padding: const EdgeInsets.all(10),
-            child: Column(children: [
-              Text("Какие у вас симптомы?"),
+            padding: const EdgeInsets.all(15),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              // const Text(
+              //   "Какие у вас симптомы?",
+              //   style: TextStyle(
+              //       fontFamily: 'SFProDisplay-Semibold', fontSize: 24),
+              //   textAlign: TextAlign.left,
+              // ),
               Row(
                 children: [
                   Checkbox(
@@ -95,7 +133,7 @@ class ReportPageState extends State<ReportPage> {
                           headAche = headAcheChange;
                         });
                       }),
-                  Text("Болит голова")
+                  const Text("Болит голова")
                 ],
               ),
               Row(
@@ -107,7 +145,7 @@ class ReportPageState extends State<ReportPage> {
                           faint = faintChange;
                         });
                       }),
-                  Text("Обморок")
+                  const Text("Обморок")
                 ],
               ),
               Row(
@@ -119,14 +157,32 @@ class ReportPageState extends State<ReportPage> {
                           sore = soreChange;
                         });
                       }),
-                  Text("Першит горло")
+                  const Text("Першит горло")
                 ],
               )
             ])),
         Padding(
-            padding: EdgeInsets.all(10),
-            child: Column(children: [
-              Text("На что похож запах?"),
+            padding: const EdgeInsets.all(15),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: const [
+                Text(
+                  "На что похож запах?",
+                  style: TextStyle(
+                      fontFamily: 'SFProDisplay-Semibold', fontSize: 24),
+                  textAlign: TextAlign.left,
+                ),
+              ],
+            )),
+
+        Padding(
+            padding: const EdgeInsets.all(15),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              // const Text("На что похож запах?",
+              //     style: TextStyle(
+              //         fontFamily: 'SFProDisplay-Semibold', fontSize: 24)),
               Row(
                 children: [
                   Checkbox(
@@ -136,7 +192,7 @@ class ReportPageState extends State<ReportPage> {
                           burn = burnChange;
                         });
                       }),
-                  Text("Гарь")
+                  const Text("Гарь")
                 ],
               ),
               Row(
@@ -148,7 +204,7 @@ class ReportPageState extends State<ReportPage> {
                           chem = chemChange;
                         });
                       }),
-                  Text("Химическийй запах")
+                  const Text("Химический запах")
                 ],
               ),
               Row(
@@ -160,30 +216,34 @@ class ReportPageState extends State<ReportPage> {
                           otherSmell = otherSmellChange;
                         });
                       }),
-                  Text("другое")
+                  const Text("другое")
                 ],
               )
             ])),
-        Padding(
+        const Padding(
             padding: EdgeInsets.all(10),
             child: TextField(
-                decoration: InputDecoration(hintText: "Что вы почувствовали?"),
-                onChanged: (expChange) {
-                  experience = expChange;
-                })),
+              obscureText: true,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Номер ЕДДС Заявки',
+              ),
+            )),
         Padding(
             padding: const EdgeInsets.all(10),
             child: MaterialButton(
               color: Colors.blue,
               child: const Padding(
                 padding: EdgeInsets.all(8.0),
-                child: Text(
-                  "Отправить",
-                  style: TextStyle(fontSize: 30, color: Colors.white),
+                child: Expanded(
+                  child: Text(
+                    "Отправить",
+                    style: TextStyle(fontSize: 30, color: Colors.white),
+                  ),
                 ),
               ),
               onPressed: () {
-                Get.to(const ReportPage2());
+                Get.to(() => const ReportPage2());
               },
             )),
       ]),
