@@ -1,3 +1,6 @@
+import 'package:airsignal_flutter/app/ui/pages/report2_page.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
@@ -179,7 +182,9 @@ class ReportPageState extends State<ReportPage> {
                   style: TextStyle(fontSize: 30, color: Colors.white),
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Get.to(const ReportPage2());
+              },
             )),
       ]),
     ));
