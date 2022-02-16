@@ -1,11 +1,13 @@
 import 'package:airsignal_flutter/app/ui/pages/report2_page.dart';
 import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
 class ReportPage extends StatefulWidget {
   const ReportPage({Key? key}) : super(key: key);
 
+  @override
   ReportPageState createState() => ReportPageState();
 }
 
@@ -50,58 +52,59 @@ class ReportPageState extends State<ReportPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SingleChildScrollView(
-      child: Column(children: [
-        const SizedBox(height: 40),
-        const Padding(
-            padding: EdgeInsets.all(10),
-            child: Text(
-              "Форма жалобы",
-              style:
-                  TextStyle(fontFamily: 'SFProDisplay-Semibold', fontSize: 24),
-            )),
-        const Padding(
-            padding: EdgeInsets.all(20),
-            child: TextField(
-              style: TextStyle(fontFamily: 'SFProDisplay-Regular'),
-              obscureText: true,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Ваша локация',
-              ),
-            )),
-        SizedBox(
-          width: 343,
-          height: 69,
-          child: MaterialButton(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-            color: Colors.blue,
-            child: Row(
-              children: const [
-                Icon(
-                  Icons.camera_alt,
-                  color: Colors.white,
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        Column(children: [
+          const SizedBox(height: 40),
+          const Padding(
+              padding: EdgeInsets.all(10),
+              child: Text(
+                "Форма жалобы",
+                style: TextStyle(
+                    fontFamily: 'SFProDisplay-Semibold', fontSize: 24),
+              )),
+          const Padding(
+              padding: EdgeInsets.all(20),
+              child: TextField(
+                style: TextStyle(fontFamily: 'SFProDisplay-Regular'),
+                obscureText: false,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Ваша локация',
                 ),
-                Expanded(
-                  child: Text(
-                    "Покажите, что вокруг вас",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'SFProDisplay-Semibold',
-                        color: Colors.white,
-                        fontSize: 18),
+              )),
+          SizedBox(
+            width: 343,
+            height: 69,
+            child: MaterialButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5)),
+              color: Colors.blue,
+              child: Row(
+                children: const [
+                  Icon(
+                    Icons.camera_alt,
+                    color: Colors.white,
                   ),
-                ),
-              ],
+                  Expanded(
+                    child: Text(
+                      "Покажите, что вокруг вас",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'SFProDisplay-Semibold',
+                          color: Colors.white,
+                          fontSize: 18),
+                    ),
+                  ),
+                ],
+              ),
+              onPressed: () {},
             ),
-            onPressed: () {},
           ),
-        ),
-        const SizedBox(height: 10),
+        ]),
         // Текст
         Padding(
-            padding: const EdgeInsets.all(10),
+            padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -115,7 +118,7 @@ class ReportPageState extends State<ReportPage> {
               ],
             )),
         Padding(
-            padding: const EdgeInsets.all(15),
+            padding: const EdgeInsets.all(10),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               // const Text(
@@ -162,7 +165,7 @@ class ReportPageState extends State<ReportPage> {
               )
             ])),
         Padding(
-            padding: const EdgeInsets.all(15),
+            padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -175,14 +178,10 @@ class ReportPageState extends State<ReportPage> {
                 ),
               ],
             )),
-
         Padding(
-            padding: const EdgeInsets.all(15),
+            padding: const EdgeInsets.all(10),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              // const Text("На что похож запах?",
-              //     style: TextStyle(
-              //         fontFamily: 'SFProDisplay-Semibold', fontSize: 24)),
               Row(
                 children: [
                   Checkbox(
@@ -223,29 +222,38 @@ class ReportPageState extends State<ReportPage> {
         const Padding(
             padding: EdgeInsets.all(10),
             child: TextField(
-              obscureText: true,
+              obscureText: false,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: 'Номер ЕДДС Заявки',
+                labelText: 'Расскажите что вы почувствовали...',
               ),
             )),
-        Padding(
-            padding: const EdgeInsets.all(10),
-            child: MaterialButton(
-              color: Colors.blue,
-              child: const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Expanded(
+        Center(
+          child: SizedBox(
+            width: 343,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 30, top: 5),
+              child: MaterialButton(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                color: Colors.blue,
+                child: const Padding(
+                  padding: EdgeInsets.all(20.0),
                   child: Text(
                     "Отправить",
-                    style: TextStyle(fontSize: 30, color: Colors.white),
+                    style: TextStyle(
+                        fontFamily: 'SFProDisplay-Semibold',
+                        fontSize: 18,
+                        color: Colors.white),
                   ),
                 ),
+                onPressed: () {
+                  Get.to(() => const ReportPage2());
+                },
               ),
-              onPressed: () {
-                Get.to(() => const ReportPage2());
-              },
-            )),
+            ),
+          ),
+        ),
       ]),
     ));
   }
