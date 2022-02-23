@@ -16,32 +16,22 @@ Map<String, dynamic> _$WindToJson(Wind instance) => <String, dynamic>{
       'speed': instance.speed,
     };
 
-Location _$LocationFromJson(Map<String, dynamic> json) => Location(
-      (json['longitude'] as num).toDouble(),
-      (json['latitude'] as num).toDouble(),
-    );
-
-Map<String, dynamic> _$LocationToJson(Location instance) => <String, dynamic>{
-      'longitude': instance.longitude,
-      'latitude': instance.latitude,
-    };
-
 NodePoint _$NodePointFromJson(Map<String, dynamic> json) => NodePoint(
       json['id'] as int,
       json['uid'] as String,
       json['name'] as String,
       json['description'] as String,
-      json['location_id'] as int,
+      (json['latitude'] as num).toDouble(),
+      (json['longitude'] as num).toDouble(),
       json['city'] as String,
-      (json['pm25'] as num?)?.toDouble(),
+      json['pm25'] as int?,
       Wind.fromJson(json['wind'] as Map<String, dynamic>),
-      Location.fromJson(json['location'] as Map<String, dynamic>),
     )
-      ..pm10 = (json['pm10'] as num?)?.toDouble()
-      ..temperature = (json['temperature'] as num?)?.toDouble()
-      ..pressure = (json['pressure'] as num?)?.toDouble()
-      ..humidity = (json['humidity'] as num?)?.toDouble()
-      ..aqi = (json['aqi'] as num?)?.toDouble()
+      ..pm10 = json['pm10'] as int?
+      ..temperature = json['temperature'] as int?
+      ..pressure = json['pressure'] as int?
+      ..humidity = json['humidity'] as int?
+      ..aqi = json['aqi'] as int?
       ..aqi_category = json['aqi_category'] as String?;
 
 Map<String, dynamic> _$NodePointToJson(NodePoint instance) => <String, dynamic>{
@@ -49,7 +39,8 @@ Map<String, dynamic> _$NodePointToJson(NodePoint instance) => <String, dynamic>{
       'uid': instance.uid,
       'name': instance.name,
       'description': instance.description,
-      'location_id': instance.location_id,
+      'latitude': instance.latitude,
+      'longitude': instance.longitude,
       'city': instance.city,
       'pm25': instance.pm25,
       'pm10': instance.pm10,
@@ -59,7 +50,6 @@ Map<String, dynamic> _$NodePointToJson(NodePoint instance) => <String, dynamic>{
       'aqi': instance.aqi,
       'aqi_category': instance.aqi_category,
       'wind': instance.wind,
-      'location': instance.location,
     };
 
 Node _$NodeFromJson(Map<String, dynamic> json) => Node(
@@ -67,17 +57,17 @@ Node _$NodeFromJson(Map<String, dynamic> json) => Node(
       json['uid'] as String,
       json['name'] as String,
       json['description'] as String,
-      json['location_id'] as int,
+      (json['latitude'] as num).toDouble(),
+      (json['longitude'] as num).toDouble(),
       json['city'] as String,
-      (json['pm25'] as num?)?.toDouble(),
+      json['pm25'] as int?,
       Wind.fromJson(json['wind'] as Map<String, dynamic>),
-      Location.fromJson(json['location'] as Map<String, dynamic>),
     )
-      ..pm10 = (json['pm10'] as num?)?.toDouble()
-      ..temperature = (json['temperature'] as num?)?.toDouble()
-      ..pressure = (json['pressure'] as num?)?.toDouble()
-      ..humidity = (json['humidity'] as num?)?.toDouble()
-      ..aqi = (json['aqi'] as num?)?.toDouble()
+      ..pm10 = json['pm10'] as int?
+      ..temperature = json['temperature'] as int?
+      ..pressure = json['pressure'] as int?
+      ..humidity = json['humidity'] as int?
+      ..aqi = json['aqi'] as int?
       ..aqi_category = json['aqi_category'] as String?;
 
 Map<String, dynamic> _$NodeToJson(Node instance) => <String, dynamic>{
@@ -85,7 +75,8 @@ Map<String, dynamic> _$NodeToJson(Node instance) => <String, dynamic>{
       'uid': instance.uid,
       'name': instance.name,
       'description': instance.description,
-      'location_id': instance.location_id,
+      'latitude': instance.latitude,
+      'longitude': instance.longitude,
       'city': instance.city,
       'pm25': instance.pm25,
       'pm10': instance.pm10,
@@ -95,18 +86,17 @@ Map<String, dynamic> _$NodeToJson(Node instance) => <String, dynamic>{
       'aqi': instance.aqi,
       'aqi_category': instance.aqi_category,
       'wind': instance.wind,
-      'location': instance.location,
     };
 
 NodeHistoryTick _$NodeHistoryTickFromJson(Map<String, dynamic> json) =>
     NodeHistoryTick(
       json['time'] as String,
-      (json['aqi'] as num).toDouble(),
-      (json['humidity'] as num).toDouble(),
-      (json['pm10'] as num).toDouble(),
-      (json['pm25'] as num).toDouble(),
-      (json['pressure'] as num).toDouble(),
-      (json['temperature'] as num).toDouble(),
+      json['aqi'] as int,
+      json['humidity'] as int,
+      json['pm10'] as int,
+      json['pm25'] as int?,
+      json['pressure'] as int,
+      json['temperature'] as int,
     );
 
 Map<String, dynamic> _$NodeHistoryTickToJson(NodeHistoryTick instance) =>

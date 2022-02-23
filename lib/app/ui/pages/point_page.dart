@@ -17,7 +17,7 @@ class PointPage extends GetView<NodeController> {
     return Scaffold(body: Obx(() {
       var val = 0.0;
       if (!controller.loading && controller.node?.pm25 != null) {
-        val = controller.node!.pm25!;
+        val = controller.node!.pm25! * 1.0;
         if (val > 80) {
           val = 0;
         } else {

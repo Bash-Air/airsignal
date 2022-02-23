@@ -27,7 +27,7 @@ class HistoryChart extends StatelessWidget {
         colorFn: (NodeHistoryTick tick, index) {
           var val = 0.0;
           if (index != null && histories[index].pm25 != null) {
-            val = histories[index].pm25!;
+            val = histories[index].pm25! * 1.0 ;
           }
           if (val > 80) {
             val = 0;

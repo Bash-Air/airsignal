@@ -41,8 +41,8 @@ class MapPage extends GetView<NodesController> {
                           .map<Marker>((NodePoint node) => Marker(
                                 width: 50.0,
                                 height: 50.0,
-                                point: LatLng(node.location.latitude,
-                                    node.location.longitude),
+                                point: LatLng(node.latitude,
+                                    node.longitude),
                                 builder: (ctx) => MapPoint(nodePoint: node),
                               ))
                           .toList()),

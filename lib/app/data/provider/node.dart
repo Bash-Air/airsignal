@@ -10,7 +10,7 @@ class NodeProvider {
 
   all() async {
     try {
-      var uri = Uri.http('api.bashair.ru', '/node/all/');
+      var uri = Uri.http('api.bashair.ru', '/node/all');
       var response = await httpClient.get(uri, headers: {
         "Accept": "application/json",
       });
@@ -31,12 +31,12 @@ class NodeProvider {
 
   byId(String nodeId) async {
     try {
-      var uri = Uri.http('api.bashair.ru', '/node/$nodeId/');
+      var uri = Uri.http('api.bashair.ru', '/node/$nodeId');
       var response = await httpClient.get(uri, headers: {
         "Accept": "application/json",
       });
       if (response.statusCode == 200) {
-        print(utf8.decode(response.bodyBytes));
+        // print(utf8.decode(response.bodyBytes));
         var jsonResponse = jsonDecode(utf8.decode(response.bodyBytes));
         Node node = Node.fromJson(jsonResponse);
         return node;
@@ -52,7 +52,7 @@ class NodeProvider {
 
   history(String nodeId) async {
     try {
-      var uri = Uri.http('api.bashair.ru', '/node/$nodeId/history/');
+      var uri = Uri.http('api.bashair.ru', '/node/$nodeId/history');
       var response = await httpClient.get(uri, headers: {
         "Accept": "application/json",
       });
