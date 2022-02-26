@@ -2,7 +2,7 @@
     package="com.airsignal.airsignal_flutter">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="airsignal_flutter"
+        android:label="AirSignal"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
